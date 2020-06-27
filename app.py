@@ -160,7 +160,8 @@ colors = {
 
     'text': '#FFFFFF'
 }
-
+server = app.server
+app.title=tabtitle
 app.layout = html.Div(
     html.Div([
         
