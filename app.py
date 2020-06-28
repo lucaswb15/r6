@@ -10,6 +10,10 @@ from plotly.subplots import make_subplots
 
 pio.templates.default = "plotly_dark"
 
+#=============================================================================
+external_stylesheets = ['https://codepen.io/unicorndy/pen/GRJXrvP.css','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css']
+app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
+server=app.server
 
 url = "https://raw.githubusercontent.com/lucaswb15/r6data/master/R6%20Data%20-%20Ranked.csv"
 df = pd.read_csv(url)
@@ -151,9 +155,7 @@ deaths_melt = Deaths
 deaths_melt = deaths_melt.melt(id_vars=['Game'], value_vars=['Lucas Deaths','Hans Deaths', 'David Deaths','Sam Deaths','Ryan Deaths'])
 deaths_pie = px.pie(deaths_melt, values = 'value', names = 'variable', title="Percentages of Deaths")
 
-#=============================================================================
-external_stylesheets = ['https://codepen.io/unicorndy/pen/GRJXrvP.css','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css']
-app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
+
 
 colors = {
     'background': '#FFFFFF',
